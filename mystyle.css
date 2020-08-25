@@ -56,9 +56,10 @@ a {
 }
 
 .header .menu-icon {
-    border: 1px solid red;
     padding: 28px 20px;
     position: relative;
+    float: right;
+    cursor: pointer;
 }
 
 .header .menu-icon .nav-icon {
@@ -78,7 +79,7 @@ a {
     position: absolute;
     width: 100%;
     top: 5px;
-    transition: all .2 ease-out;
+    transition: all .2s ease-out;
 }
 
 .header .menu-icon .nav-icon:after {
@@ -89,9 +90,44 @@ a {
     position: absolute;
     width: 100%;
     top: -5px;
-    transition: all .2 ease-out;
+    transition: all .2s ease-out;
 }
 
 .header .menu-btn {
     display: none;
+}
+
+.header .menu-btn:checked ~ .menu {
+    max-height: 240px;
+}
+
+.header .menu-btn:checked ~ .menu-icon .nav-icon {
+    background: transparent;
+}
+
+.header .menu-btn:checked ~ .menu-icon .nav-icon:before {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+.header .menu-btn:checked ~ .menu-icon .nav-icon:after {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+@media (min-width: 48em) {
+    .header li {
+        float: left;
+    }
+    .header li a {
+        padding: 20px 30px;
+    }
+    .header .menu {
+        clear: none;
+        float: right;
+        max-height: none;
+    }
+    .header .menu-icon {
+        display: none;
+    }
 }
